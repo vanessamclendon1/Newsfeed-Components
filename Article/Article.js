@@ -5,20 +5,22 @@ class Article {
     // assign this.domElement to the passed in domElement
     this.domElement = domElement;
     // create a reference to the ".expandButton" class. 
-    this.expandButton = document.querySelector('.expand- button');
+    this.expandButton = this.domElement.querySelector('.expandButton');
     // Using your expandButton reference, update the text on your expandButton to say "expand"
-    //this.expandButton.textContent = 'expand'; 
+    this.expandButton.textContent = 'expand'; 
     
     // Set a click handler on the expandButton reference, calling the expandArticle method.
-    
-    
+    this.content = document.querySelector('hey')
+    this.expandButton.addEventListener('click',() => this.expandArticle(event))
   }
 
-  expandArticle() {
+  expandArticle(event) {
     // Using our reference to the domElement, toggle a class to expand or hide the article.
+    event.classList.toggle('.expand-button');
 
   }
 }
+
 
 /* START HERE: 
 
@@ -31,7 +33,11 @@ class Article {
 let articles = document.querySelectorAll('.article');
 
 //looping forEach()
-articles.forEach(function(domElement){
-  return new Article(domElement);
+// articles.forEach(function(domElement){
+//   return new Article(domElement);
+// });
+
+articles = Array.from(articles).map(article =>{
+  return new Article(article);
 });
 
