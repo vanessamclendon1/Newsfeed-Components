@@ -7,7 +7,8 @@ class Article {
     // create a reference to the ".expandButton" class. 
     this.expandButton = this.domElement.querySelector('.expandButton');
     // Using your expandButton reference, update the text on your expandButton to say "expand"
-    this.expandButton.textContent = 'expand'; 
+    this.expandButton.innerHTML = 'expand'; 
+    
     
     // Set a click handler on the expandButton reference, calling the expandArticle method.
     this.content = document.querySelector('hey')
@@ -16,8 +17,8 @@ class Article {
 
   expandArticle(event) {
     // Using our reference to the domElement, toggle a class to expand or hide the article.
-    event.classList.toggle('.expand-button');
-
+     
+    this.parentNode.classList.toggle('article-open')
   }
 }
 
@@ -41,3 +42,5 @@ articles = Array.from(articles).map(article =>{
   return new Article(article);
 });
 
+//created article
+const pic = document.querySelector('.header .kitten')
